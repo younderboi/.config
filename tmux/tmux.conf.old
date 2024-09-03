@@ -1,0 +1,27 @@
+# Smart pane switching using vim style keys
+bind -n C-h select-pane -L
+bind -n C-j select-pane -D
+bind -n C-k select-pane -U
+bind -n C-l select-pane -R
+
+# Ensure prefix key is not required
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# === Reloading!!
+bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloading!!"
+
+# === Enable mouse (?)
+#set -g mouse on
+
+# === VI style keybindings for tmux visual mode
+setw -g mode-keys vi
+
+# Bind 'v' to begin selection, similar to entering visual mode in vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+# Bind 'y' to yank the selected text, similar to 'y' in vi's visual mode
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
