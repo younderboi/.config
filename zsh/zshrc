@@ -1,0 +1,41 @@
+#=== SSH-agent
+eval "$(ssh-agent -s)"
+# TODO: automatically add keys?
+
+#=== dir-env
+eval "$(direnv hook zsh)"
+
+#=== Aliases
+#alias get_tun0_ip="ip -4 addr show tun0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+alias clip="xclip -selection clipboard"
+alias gp="sgpt"
+alias vi="nvim"
+alias c="clear"
+alias ll="ls -l"
+alias la="ls -A"
+alias l="ls -CF"
+
+#=== PATH
+export PATH=$HOME/.local/bin:$PATH
+
+#=== Prompt
+PS1="[λ]- "
+
+#=== Environment variables
+EDITOR="vim"
+
+#=== The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle :compinstall filename '/home/eknovitz/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+bindkey -v
+# End of lines configured by zsh-newuser-install
